@@ -1,0 +1,35 @@
+{
+  "name": "next-redux-observable",
+  "version": "0.0.1",
+  "description": "Redux-observable wrapper for Next.js",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "lint": "npx eslint src"
+  },
+  "keywords": [
+    "next",
+    "nextjs",
+    "redux",
+    "rxjs",
+    "redux-observable"
+  ],
+  "author": "Miguel Quintal",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.0",
+    "redux-observable": "^1.2.0",
+    "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
