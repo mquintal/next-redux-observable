@@ -7,3 +7,4 @@ src
 .jshintignore
 .jshintrc
 .npmignore
+webpack.config.js
