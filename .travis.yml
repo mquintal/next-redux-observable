@@ -4,7 +4,7 @@ node_js:
 
 before_deploy:
   - npm run build
-  - ls -l
+  - ls
 
 deploy:
   provider: npm
@@ -12,4 +12,5 @@ deploy:
   api_key: $NPM_KEY
   skip_cleanup: true
   on:
+    branch: master
     tags: true
