@@ -3,12 +3,11 @@ node_js:
   - "12.13"
 
 before_deploy:
-  - npm install
   - npm run build
 
 deploy:
   provider: npm
-  email: "miquintal88@hmail.com"
+  email: $NPM_EMAIL
   api_key: $NPM_KEY
   on:
     tags: true
