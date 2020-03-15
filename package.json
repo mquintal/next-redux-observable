@@ -15,6 +15,9 @@
     "rxjs",
     "redux-observable"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Miguel Quintal",
   "license": "ISC",
   "dependencies": {
