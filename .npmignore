@@ -1,0 +1,9 @@
+node_modules
+src
+.git
+.tests
+.gitignore
+.editorconfig
+.jshintignore
+.jshintrc
+.npmignore
