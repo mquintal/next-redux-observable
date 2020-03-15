@@ -4,10 +4,12 @@ node_js:
 
 before_deploy:
   - npm run build
+  - ls -l
 
 deploy:
   provider: npm
   email: $NPM_EMAIL
   api_key: $NPM_KEY
+  skip_cleanup: true
   on:
     tags: true
