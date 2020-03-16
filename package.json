@@ -19,6 +19,13 @@
     "access": "public"
   },
   "author": "Miguel Quintal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mquintal/next-redux-observable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mquintal/next-observable/issues"
+  },
   "license": "ISC",
   "dependencies": {
     "react": "^16.13.0",
