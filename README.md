@@ -1,4 +1,4 @@
-# next-redux-observable
+# next-redux-observable (still in alpha)
 
 Library based on [next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper) to facilitate integrating [redux-observable](https://redux-observable.js.org/) on applications based in [NextJS](https://nextjs.org/)
 
@@ -12,19 +12,19 @@ Library based on [next-redux-wrapper](https://github.com/kirill-konshin/next-red
 
 As you might know `getInitialProps` method is called on the server side by NextJS to make sure you're providing all data needed to the server side render.
 next-redux-wrapper does a brilliant job connecting your NextJS app with redux providing the store on `getInitialProps` which then allows us to dispatch actions from it. The issue here is that we are handling all our side-effects using redux-observable which usually handles async tasks (i.e fetching data) and `getInitialProps` is expecting a promise to be resolved when the data is ready to be rendered.
-Using this library you just need to provided which actions should be processed before rendering.
+Using this library you just need to provide which actions should be processed before the rendering happen.
 
 ## how it works
 
-Assuming you follow all the instructions to integrate [next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper) on your project and your are able to dispatch action from `getInitialProps` method. Using this library will be an easy task!
+Assuming you have followed all the instructions to integrate [next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper) on your project and your are able to dispatch action from `getInitialProps` method. Using this library will be an easy task!
 
 ### example 
-This simple example you just need to provide the "load user epic" and "load use action". Behaing the sence it will dispatch the action and wait to resolve the promise until the epic is finished.
+This simple example you just need to provide the "load use action". Behind the scene it will "dispatch" (execute the root epic) the action and wait to resolve the promise when the epic is finished.
 
 ```js
 // pages/_app.js
 
-// Again here we just have the required changes needed after you follow next-redux-wrapper
+// Again here we just have the required changes needed after you followed next-redux-wrapper
 // documentation to integrate it on your project
 
 import { withObservable } from 'next-redux-observable'
@@ -45,7 +45,7 @@ export default withRedux(makeStore)(withObservable(MyApp, rootEpic))
 import { useEffect } from 'react'
 import { connect } from 'redux-react' 
 import { resolveEpics } from 'next-redux-observable'
-import { load, loadEpic } from '<some-dir>/state/user'
+import { load } from 'YOUR_PROJECT_DIR/state/user'
 
 const Page = ({ load, user }) => {
 
