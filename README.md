@@ -6,7 +6,7 @@ Library based on [next-redux-wrapper](https://github.com/kirill-konshin/next-red
 
 `npm install next-redux-observable`
 
-**Note:** Do not forget to install [next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper)
+**Note:** Do not forget to install and integrate [next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper) before.
 
 ## motivation 
 
@@ -26,7 +26,7 @@ This simple example you just need to provide the "load use action". Behind the s
 
 // Again here we just have the required changes needed after you followed next-redux-wrapper
 // documentation to integrate it on your project
-
+import { compose } from 'redux'
 import { withObservable } from 'next-redux-observable'
 import { combineEpics } from 'redux-observable'
 
@@ -36,7 +36,14 @@ export const rootEpic = combineEpics( /* your epics */ )
 .
 .
 
-export default withRedux(makeStore)(withObservable(MyApp, rootEpic))
+export default withRedux(makeStore)(withObservable(rootEpic)(MyApp))
+
+// OR
+
+export default compose(
+    withRedux(makeStore),
+    withObservable(rootEpic),
+)(MyApp)
 ```
 
 ```js

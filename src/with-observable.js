@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function withObservable(Component, rootEpic) {
+const withObservable = rootEpic => Component => {
   class WrappedComponent extends React.Component {
     static displayName = `withObservable(${Component.displayName || Component.name || 'Component'})`
 
