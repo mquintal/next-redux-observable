@@ -4,7 +4,7 @@ import  { default as usersReducer, epics as usersEpics } from './state/users'
 
 
 export const rootEpic = combineEpics(
-    usersEpics.list,
+    ...Object.values(usersEpics),
 )
 
 const reducer = combineReducers({
