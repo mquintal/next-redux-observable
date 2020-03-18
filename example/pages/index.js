@@ -4,11 +4,10 @@ import Link from 'next/link'
 import { loadUsers } from '../state/users'
 
 
-const Page = ({ list }) => {
-    return <div>
+const Page = ({ list }) => (<div>
        {list.map(user => <div key={user.id}><Link href="/user/[id]" as={`/user/${user.id}`}>{user.login}</Link></div>)}
     </div>
-}
+)
 
 
 Page.getInitialProps = resolveActions([
