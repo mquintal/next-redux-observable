@@ -3,8 +3,7 @@ import { mount } from 'enzyme'
 import { default as withObservable } from '../with-observable' 
 
 
-const Component = () => <div></div>
-
+const Component = () => <div>some content</div>
 
 describe('src/with-observable.js', () => {
     it('should be a function', () => {

@@ -1,4 +1,3 @@
-import { of } from 'rxjs'
 import { mapTo, map } from 'rxjs/operators'
 import { combineEpics } from 'redux-observable'
 import { default as resolveActions } from '../resolve-actions'
