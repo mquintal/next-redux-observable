@@ -71,17 +71,13 @@ const mapStateToProps = state => ({
     user: state.user.name,
 })
 
-const mapDispatchToState = dispatch = ({
-    load: () => dispatch(load()),
-})
-
-export default connect(mapStateToProps, mapDispatchToState)(Page)
+export default connect(mapStateToProps)(Page)
 
 ```
 
 ### interface
 
-**Syntax:** resolveActions **(** `actions` | [ `actions` ], `timeout` **)**
+**Syntax:** resolveActions **(** `action` | [ `actions` ], `timeout` **)**
 
 *Return a function expected by getInitialProps*
 

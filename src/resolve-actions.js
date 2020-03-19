@@ -4,10 +4,11 @@ import { StateObservable } from 'redux-observable'
 
 
 const DEFAULT_TIMEOUT = 15000
-const DEFAULT_ACTION = { type: '@@ndo/default_action' }
-const FAILURE_ACTION = { type: '@@ndo/feailure_action' }
+const FAILURE_ACTION = { type: '@@ndo/failure_action' }
 
 const makeArray = item => Array.isArray(item) ? item : [item]
+
+const failureAction = error => ({ ...FAILURE_ACTION, payload: { error } })
 
 /**
  * Method responsible for getting all actions needed to be processed 
@@ -26,12 +27,11 @@ export default (actions, tout = DEFAULT_TIMEOUT) => ({ store, rootEpic }) => {
             rootEpic(of(action), state$)
                 .pipe(timeout(tout))
                 .toPromise()
-                .then(action => action || DEFAULT_ACTION)
-                .catch(error => ({...FAILURE_ACTION, error}))
+                .catch(failureAction)
         )
     )
     .then(resultActions => {
-        resultActions.forEach(store.dispatch)
+        resultActions.forEach((action) => store.dispatch(action))
         return store.getState()
     })
 }

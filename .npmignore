@@ -1,6 +1,7 @@
 node_modules
 src
 example
+coverage
 .git
 .tests
 .gitignore
@@ -9,3 +10,5 @@ example
 .jshintrc
 .npmignore
 webpack.config.js
+jest.config.js
+jest.setup.js
