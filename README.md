@@ -1,3 +1,5 @@
+![Build status](https://travis-ci.org/mquintal/next-redux-observable.svg?branch=master)
+
 # next-redux-observable
 
 Library based on [next-redux-wrapper](https://github.com/kirill-konshin/next-redux-wrapper) to facilitate integrating [redux-observable](https://redux-observable.js.org/) on applications based in [NextJS](https://nextjs.org/)

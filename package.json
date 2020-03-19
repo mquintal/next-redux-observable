@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "testwatch": "jest --watchAll",
+    "test:coverall": "jest --coverage && coveralls < coverage/lcov.info",
     "build": "webpack",
     "lint": "npx eslint src"
   },
@@ -42,6 +43,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
+    "coveralls": "^3.0.11",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
