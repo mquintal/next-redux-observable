@@ -1,4 +1,5 @@
 ![Build status](https://travis-ci.org/mquintal/next-redux-observable.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/mquintal/next-redux-observable/badge.svg?branch=master)](https://coveralls.io/github/mquintal/next-redux-observable?branch=master)
 
 # next-redux-observable
 
