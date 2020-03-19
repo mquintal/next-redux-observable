@@ -1,6 +1,6 @@
 {
   "name": "next-redux-observable",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "Redux-observable wrapper for Next.js",
   "main": "dist/main.js",
   "scripts": {
