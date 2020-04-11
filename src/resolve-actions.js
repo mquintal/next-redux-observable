@@ -19,19 +19,20 @@ const failureAction = error => ({ ...FAILURE_ACTION, payload: { error } })
  *
  * @return {Function} - function expected by getInitialProps when using next-redux-wrapper.
  */
-export default (actions, tout = DEFAULT_TIMEOUT) => ({ store, rootEpic }) => {
+export default (actions, tout = DEFAULT_TIMEOUT) => ({ store, isServer = false, rootEpic }) => {
     const state$ = new StateObservable(new Subject(), store.getState())
 
     return Promise.all(
-        makeArray(actions).map(action =>
-            rootEpic(of(action), state$)
+        makeArray(actions)
+            .map(action => ({ ...action, isServer }))
+            .map(action => rootEpic(of(action), state$)
                 .pipe(timeout(tout))
                 .toPromise()
                 .catch(failureAction)
-        )
+            )
     )
     .then(resultActions => {
-        resultActions.forEach((action) => store.dispatch(action))
+        resultActions.forEach(action => store.dispatch({ ...action, isServer }))
         return store.getState()
     })
 }

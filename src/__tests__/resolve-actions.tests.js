@@ -23,9 +23,10 @@ describe('src/resolve-actions.js', () => {
             const epic = actions$ => actions$.pipe(mapTo(resultActions))
             const rootEpic = combineEpics(epic)
             const actions = [{ type: 'some action' }]
+            const isServer = true
 
-            resolveActions(actions)({ store, rootEpic }).then(() => {
-                expect(store.dispatch).toHaveBeenCalledWith(resultActions)
+            resolveActions(actions)({ store, isServer, rootEpic }).then(() => {
+                expect(store.dispatch).toHaveBeenCalledWith({ ...resultActions, isServer })
             })
             .then(done)
         })
@@ -41,7 +42,8 @@ describe('src/resolve-actions.js', () => {
             resolveActions(actions)({ store, rootEpic }).then(() => {
                 expect(store.dispatch).toHaveBeenCalledWith({
                     type: '@@ndo/failure_action',
-                    payload: { error }
+                    payload: { error },
+                    isServer: false,
                 })
             })
             .then(done)

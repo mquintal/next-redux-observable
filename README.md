@@ -86,9 +86,8 @@ export default connect(mapStateToProps)(Page)
 
 ### Arguments
 
-* `actions` *Object | Array<Object>* - an action or an array of actions
-* `timeout`	*Number*  - (optional) timeout in ms applied to all actions (default: 15000ms )
+- `actions` *Object | Array* - an action or an array of actions
+- `timeout`	*Number*  - (optional) timeout in ms applied to all actions (default: 15000ms ) 
 
 
-
-
+**Note:** All actions will be dispatched with a `isServer` boolean. For example if your action is `{ type: 'add' }` it will become `{ type: 'add', isServer: true }` on the server side and `{ type: 'add', isServer: false }`
